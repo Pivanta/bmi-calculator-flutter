@@ -7,6 +7,7 @@ const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const inactiveCardColor = Color(0xFF111328);
 const activeCardColor = Color(0xFF1D1E33);
+
 enum Gender {
   male,
   female,
@@ -21,14 +22,14 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
 
-  void updateColor(Gender gender) {
-    if (gender == Gender.male) {
-      maleCardColor = activeCardColor;
-      femaleCardColor = inactiveCardColor;
-    } else if (gender == Gender.female) {
-      femaleCardColor = activeCardColor;
-      maleCardColor = inactiveCardColor;
-    }
+  void updateColor(Gender selectedGender) {
+    selectedGender == Gender.male
+        ? femaleCardColor == inactiveCardColor ? maleCardColor = activeCardColor : femaleCardColor = inactiveCardColor
+        : femaleCardColor = activeCardColor;
+
+    selectedGender == Gender.female
+        ? femaleCardColor == inactiveCardColor ? maleCardColor = activeCardColor : maleCardColor = inactiveCardColor
+        : maleCardColor = activeCardColor;
   }
 
   @override
