@@ -4,6 +4,7 @@ class ReusableCard extends StatelessWidget {
   // Values not assigned to the variable color which is Color type.
   final Color color;
   final Widget cardChild;
+  // Function onPress is called passing a function. Meaning we are passing that function to input_page
   final Function onPress;
 
   ReusableCard({@required this.color, this.cardChild, this.onPress});
