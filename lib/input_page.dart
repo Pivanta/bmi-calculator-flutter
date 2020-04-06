@@ -17,6 +17,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   var selectedGender;
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -118,12 +119,31 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      ReusableCard(
-                        color: kActiveCardColor,
-                      ),
-                    ],
+                  child: ReusableCard(
+                    color: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyleLarge,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(icon: Icon(Icons.add)),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(icon: Icon(Icons.remove)),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -142,6 +162,28 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+// Custom RawMaterialButton
+class RoundIconButton extends StatelessWidget {
+  final Icon icon;
+
+  const RoundIconButton({this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: icon,
+      onPressed: () {},
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
     );
   }
 }
