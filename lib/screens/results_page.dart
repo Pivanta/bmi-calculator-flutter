@@ -54,10 +54,13 @@ class ResultPage extends StatelessWidget {
                   SizedBox(
                     height: 60.0,
                   ),
-                  Text(
-                    interpretation,
-                    textAlign: TextAlign.center,
-                    style: kResultTextOutput,
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      interpretation,
+                      textAlign: TextAlign.center,
+                      style: kResultTextOutput,
+                    ),
                   ),
                 ],
               ),
