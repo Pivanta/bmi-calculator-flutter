@@ -6,6 +6,12 @@ import '../components/bottom_container.dart';
 import 'input_page.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  ResultPage({@required this.bmiResult, @required this.resultText, @required this.interpretation});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,21 +41,21 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'OVERWEIGHT',
+                    resultText.toUpperCase(),
                     style: kResultTextStyle1,
                   ),
                   SizedBox(
                     height: 60.0,
                   ),
                   Text(
-                    '30.0',
+                    bmiResult,
                     style: kResultTextOutputBmi,
                   ),
                   SizedBox(
                     height: 60.0,
                   ),
                   Text(
-                    'You ahve a hiogher normal weoght than other please take escersise and dring loads of water',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kResultTextOutput,
                   ),
