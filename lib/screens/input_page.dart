@@ -132,13 +132,27 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          'WEIGHT',
-                          style: kLabelTextStyle,
+                        Container(
+                          alignment: AlignmentDirectional(-0.2, 0),
+                          child: Text(
+                            'WEIGHT',
+                            style: kLabelTextStyle,
+                          ),
                         ),
-                        Text(
-                          weight.toString(),
-                          style: kNumberTextStyleLarge,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              weight.toString(),
+                              style: kNumberTextStyleLarge,
+                            ),
+                            Text(
+                              'kg',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 12.0,
@@ -182,9 +196,20 @@ class _InputPageState extends State<InputPage> {
                           'AGE',
                           style: kLabelTextStyle,
                         ),
-                        Text(
-                          age.toString(),
-                          style: kNumberTextStyleLarge,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              age.toString(),
+                              style: kNumberTextStyleLarge,
+                            ),
+                            Text(
+                              'yrs',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 12.0,
