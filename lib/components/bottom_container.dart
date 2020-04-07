@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
-import 'input_page.dart';
+import 'package:bmi_calculator/constants.dart';
 
 class BottomContainer extends StatelessWidget {
-  final Function routes;
-  const BottomContainer({@required this.routes});
+  final Function onTap;
+  final String buttonTitle;
+  const BottomContainer({@required this.onTap, @required this.buttonTitle});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: routes,
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(top: 10.0),
         padding: EdgeInsets.only(bottom: 20.0),
@@ -18,7 +18,7 @@ class BottomContainer extends StatelessWidget {
         height: kBottomContainerHeight,
         child: Center(
           child: Text(
-            'RE-CALCULATE',
+            buttonTitle,
             style: kBottomContainerText,
           ),
         ),

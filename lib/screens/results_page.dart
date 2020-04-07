@@ -1,25 +1,34 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
-import 'reusable_content.dart';
-import 'constants.dart';
+import '../components/reusable_content.dart';
+import '../constants.dart';
+import '../components/bottom_container.dart';
 import 'input_page.dart';
-import 'bottom_container.dart';
 
 class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         title: Text(
-          'Your Result',
-          style: TextStyle(fontSize: 45.0, fontWeight: FontWeight.bold),
+          'BMI CALCULATOR',
         ),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
+            child: Container(
+              // Margin moves the whole container and padding moves the text.
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'Results',
+                style: kResultTextTop,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 6,
             child: ReusableCard(
               color: kActiveCardColor,
               cardChild: Column(
@@ -27,41 +36,30 @@ class ResultPage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'OVERWEIGHT',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
+                    style: kResultTextStyle1,
                   ),
                   SizedBox(
                     height: 60.0,
                   ),
                   Text(
                     '30.0',
-                    style: TextStyle(
-                      fontSize: 70.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: kResultTextOutputBmi,
                   ),
                   SizedBox(
                     height: 60.0,
                   ),
-                  Container(
-                    margin: EdgeInsets.all(30.0),
-                    child: Text(
-                      'You ahve a hiogher normal weoght than other please take escersise and dring loads of water',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
-                    ),
+                  Text(
+                    'You ahve a hiogher normal weoght than other please take escersise and dring loads of water',
+                    textAlign: TextAlign.center,
+                    style: kResultTextOutput,
                   ),
                 ],
               ),
             ),
           ),
           BottomContainer(
-            routes: () {
+            buttonTitle: 'RE-CALCULATE',
+            onTap: () {
               Navigator.pop(
                 context,
                 MaterialPageRoute(builder: (context) {
