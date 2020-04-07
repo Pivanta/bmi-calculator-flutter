@@ -74,9 +74,12 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'HEIGHT',
-                    style: kLabelTextStyle,
+                  Container(
+                    alignment: AlignmentDirectional(-0.06, 0),
+                    child: Text(
+                      'HEIGHT',
+                      style: kLabelTextStyle,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -192,9 +195,12 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          'AGE',
-                          style: kLabelTextStyle,
+                        Container(
+                          alignment: AlignmentDirectional(-0.2, 0),
+                          child: Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
