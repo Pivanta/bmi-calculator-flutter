@@ -253,6 +253,8 @@ class _InputPageState extends State<InputPage> {
             buttonTitle: 'CALCULATE BMI',
             onTap: () {
               CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+              //BmiUpperTextResult col = BmiUpperTextResult(); NO NEED TO CREATE NEW OBJECT AS WE ARE GETTING TO
+              // BMIUPPERTEXT VIA CALCULATOR BRAIN AS THAT EXTENDS TO BMIUPPERTEXT,
               Navigator.push(
                 context,
                 // Converted to arrow function.

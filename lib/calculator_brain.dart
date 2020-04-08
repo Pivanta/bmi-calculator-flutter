@@ -4,23 +4,13 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CalculatorBrain extends StatelessWidget {
+class CalculatorBrain extends BmiUpperTextResult {
   final int height;
   final int weight;
-  final Color color;
-  final String bmiUpperText;
 
   double _bmi;
 
-  CalculatorBrain({this.height, this.weight, this.color, this.bmiUpperText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      bmiUpperText,
-      style: TextStyle(color: color, fontSize: 24.0, fontWeight: FontWeight.bold),
-    );
-  }
+  CalculatorBrain({this.height, this.weight});
 
   // ONCE YOU HAVE ASSIGNED A DOUBLE TYPE VALUE WHICH IS A INSTANCE VARIABLE DO NOT ASSIGN THE TYPE DOUBLE AGAIN...
   // IN THE METHOD AS THE APP WILL CRASH LIKE DOUBLE _BMI;
@@ -32,11 +22,11 @@ class CalculatorBrain extends StatelessWidget {
 
   Widget getResults() {
     if (_bmi > 25) {
-      return CalculatorBrain(color: Colors.red, bmiUpperText: 'OVERWEIGHT');
+      return BmiUpperTextResult(color: Colors.red, bmiUpperText: 'OVERWEIGHT');
     } else if (_bmi >= 18.5) {
-      return CalculatorBrain(color: Colors.green, bmiUpperText: 'NORMAL');
+      return BmiUpperTextResult(color: Colors.green, bmiUpperText: 'NORMAL');
     }
-    return CalculatorBrain(color: Colors.amber, bmiUpperText: 'UNDERWEIGHT');
+    return BmiUpperTextResult(color: Colors.amber, bmiUpperText: 'UNDERWEIGHT');
   }
 
   String getInterpretation() {
@@ -50,4 +40,18 @@ class CalculatorBrain extends StatelessWidget {
   }
 }
 
+class BmiUpperTextResult extends StatelessWidget {
+  // Values not assigned to the variable color which is Color type.
+  final Color color;
+  final String bmiUpperText;
 
+  BmiUpperTextResult({this.color, this.bmiUpperText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      bmiUpperText,
+      style: TextStyle(color: color, fontSize: 24.0, fontWeight: FontWeight.bold),
+    );
+  }
+}
