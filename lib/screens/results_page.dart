@@ -7,10 +7,10 @@ import 'input_page.dart';
 
 class ResultPage extends StatelessWidget {
   final String bmiResult;
-  final String resultText;
+  final Widget resultText;
   final String interpretation;
 
-  ResultPage({@required this.bmiResult, @required this.resultText, @required this.interpretation});
+  ResultPage({this.bmiResult, this.resultText, this.interpretation});
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,7 @@ class ResultPage extends StatelessWidget {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    resultText.toUpperCase(),
-                    style: kResultTextStyle1,
-                  ),
+                  resultText,
                   SizedBox(
                     height: 60.0,
                   ),
@@ -82,3 +79,23 @@ class ResultPage extends StatelessWidget {
     );
   }
 }
+
+/*enum BmiCategory {
+  overweight,
+  normal,
+  underweight,
+}
+
+class _ResultPageState extends State<ResultPage> {
+  BmiCategory bmiCategory;
+  String textWeight = "OVERWEIGHT";
+  String textNormal = 'NORMAL';
+  bool pressed;
+
+  Color checkB(BmiCategory bmiCategory) {
+    if (bmiCategory == BmiCategory.overweight) {
+      return overWeightColor;
+    } else {
+      return normalColor;
+    }
+  }*/

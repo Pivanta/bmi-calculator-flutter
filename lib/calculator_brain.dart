@@ -1,32 +1,42 @@
 import 'dart:math';
 
-class CalculatorBrain {
+import 'package:bmi_calculator/constants.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class CalculatorBrain extends StatelessWidget {
   final int height;
   final int weight;
+  final Color color;
+  final String bmiUpperText;
 
   double _bmi;
 
-  CalculatorBrain({this.height, this.weight});
+  CalculatorBrain({this.height, this.weight, this.color, this.bmiUpperText});
 
-  String calculateBmi() {
-    _bmi = weight / pow(height / 100, 2);
-    return _bmi.toStringAsFixed(1);
-    // taken away all the code below by using pow method
-    /*print('Converted Height is $newHeight');
-    double bmi = weight / newHeight;
-    String bmiCon = bmi.toStringAsFixed(1);
-    print('BMI is $bmiCon');
-    return bmiCon.toString();*/
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      bmiUpperText,
+      style: TextStyle(color: color, fontSize: 24.0, fontWeight: FontWeight.bold),
+    );
   }
 
-  String getResults() {
+  // ONCE YOU HAVE ASSIGNED A DOUBLE TYPE VALUE WHICH IS A INSTANCE VARIABLE DO NOT ASSIGN THE TYPE DOUBLE AGAIN...
+  // IN THE METHOD AS THE APP WILL CRASH LIKE DOUBLE _BMI;
+  String calculateBmi() {
+    // DO NOT ASSIGN DOUBLE _BMI AGAIN example double _bmi = weight / pow(height / 100, 2);
+    _bmi = weight / pow(height / 100, 2);
+    return _bmi.toStringAsFixed(1);
+  }
+
+  Widget getResults() {
     if (_bmi > 25) {
-      return 'Overweight';
+      return CalculatorBrain(color: Colors.red, bmiUpperText: 'OVERWEIGHT');
     } else if (_bmi >= 18.5) {
-      return 'Normal';
-    } else {
-      return 'Underweight';
+      return CalculatorBrain(color: Colors.green, bmiUpperText: 'NORMAL');
     }
+    return CalculatorBrain(color: Colors.amber, bmiUpperText: 'UNDERWEIGHT');
   }
 
   String getInterpretation() {
@@ -39,3 +49,5 @@ class CalculatorBrain {
     }
   }
 }
+
+

@@ -25,6 +25,7 @@ class _InputPageState extends State<InputPage> {
   int height = 180;
   int weight = 60;
   int age = 19;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -178,7 +179,6 @@ class _InputPageState extends State<InputPage> {
                               onPress: () {
                                 setState(() {
                                   weight++;
-                                  print(weight);
                                 });
                               },
                               icon: FontAwesomeIcons.plus,
